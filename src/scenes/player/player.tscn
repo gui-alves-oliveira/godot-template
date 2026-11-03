@@ -1,8 +1,10 @@
 [gd_scene format=3 uid="uid://cfnv31lsyv2og"]
 
+[ext_resource type="Script" uid="uid://dh4pooff7gevx" path="res://src/scenes/player/player.gd" id="1_qopur"]
 [ext_resource type="Texture2D" uid="uid://bvpude45qmthe" path="res://assets/sprites/prototype_block.png" id="1_swhsd"]
 
 [node name="Player" type="Node2D" unique_id=124559305]
+script = ExtResource("1_qopur")
 
 [node name="Node2D" type="Node2D" parent="." unique_id=669959190]
 

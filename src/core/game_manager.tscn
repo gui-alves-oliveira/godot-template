@@ -2,10 +2,14 @@
 
 [ext_resource type="Script" uid="uid://d1sl1ho2d7rko" path="res://src/core/scripts/bootstrap.gd" id="1_emcv1"]
 [ext_resource type="PackedScene" uid="uid://hn6fiyatwcta" path="res://src/debugger/overlay/overlay.tscn" id="2_d4q8a"]
+[ext_resource type="PackedScene" uid="uid://cfnv31lsyv2og" path="res://src/scenes/player/player.tscn" id="2_p8uu6"]
+[ext_resource type="PackedScene" uid="uid://dfxbwoi3k2hc0" path="res://src/levels/prototype/prototype.tscn" id="3_reaek"]
 
 [node name="GameManager" type="Node" unique_id=517148513]
 process_mode = 3
 script = ExtResource("1_emcv1")
+player_scene = ExtResource("2_p8uu6")
+initial_level_scene = ExtResource("3_reaek")
 
 [node name="Systems" type="Node" parent="." unique_id=647366947]
 
@@ -66,8 +70,3 @@ mouse_behavior_recursive = 1
 
 [node name="Overlay" parent="Debug/DebuggerRoot" unique_id=645299503 instance=ExtResource("2_d4q8a")]
 layout_mode = 1
-anchors_preset = 15
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 1.0
-anchor_bottom = 1.0

@@ -1,7 +1,10 @@
 extends Node
 
-const PROTOTYPE = "uid://dfxbwoi3k2hc0"
-const PLAYER = "uid://cfnv31lsyv2og"
+@export var player_scene: PackedScene
+@export var initial_level_scene: PackedScene
+
+var player: Player
+var current_level: Level
 
 # Game World
 @onready var levels_root: Node2D = $World/LevelsRoot
@@ -12,72 +15,65 @@ const PLAYER = "uid://cfnv31lsyv2og"
 @onready var pause_root: Control = $Pause/PauseRoot
 @onready var transition_root: Control = $Transition/TransitionRoot
 
-var player: Node2D = null
-var current_level: Level = null
 
 func _ready() -> void:
 	_init_player()
-	load_level(PROTOTYPE)
-	pass
+	load_level(initial_level_scene)
 
-func _process(_delta: float) -> void:
-	pass
 
-func _init_player():
-	var player_scene = ResourceLoader.load(PLAYER) as PackedScene
-	
+func _init_player() -> void:
 	if player_scene == null:
 		return
-	
-	player = player_scene.instantiate()
-	
+
+	player = player_scene.instantiate() as Node2D
+
 	if player == null:
 		return
-	
+
 	entities_root.add_child(player)
 
-func load_level(scene_uid: String):
-	_deferred_load_level.call_deferred(scene_uid)
 
-func _deferred_load_level(scene_uid: String):
+func load_level(scene: PackedScene) -> void:
+	_deferred_load_level.call_deferred(scene)
+
+
+func _deferred_load_level(scene: PackedScene) -> void:
 	if current_level != null:
 		current_level.queue_free()
 		current_level = null
-	
+
 	await get_tree().process_frame
-	
-	var next_level = ResourceLoader.load(scene_uid, "PackedScene")
-	
-	if next_level == null:
+
+	if scene == null:
 		return
-	
-	current_level = next_level.instantiate()
+
+	current_level = scene.instantiate() as Level
+
+	if current_level == null:
+		return
+
 	levels_root.add_child(current_level)
-	
+
 	await get_tree().process_frame
-	
+
 	_spawn_player_at_initial_position()
 	_initiate_camera()
 
-func _spawn_player_at_initial_position():
-	if player == null:
+
+func _spawn_player_at_initial_position() -> void:
+	if player == null or current_level == null:
 		return
-	
-	if current_level == null:
-		return
-	
+
 	player.global_position = current_level.get_player_spawn_position().global_position
 
-func _initiate_camera():
-	if player == null:
+
+func _initiate_camera() -> void:
+	if player == null or current_level == null:
 		return
-	
-	if current_level == null:
-		return
-	
-	var level_camera : Camera2D = current_level.get_camera()
-	
+
+	var level_camera: Camera2D = current_level.get_camera()
+
 	if level_camera == null:
 		return
-	
+
 	level_camera.target = player
