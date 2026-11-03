@@ -25,6 +25,12 @@ window/size/window_height_override=1080
 window/stretch/mode="canvas_items"
 window/stretch/scale_mode="integer"
 
+[file_customization]
+
+folder_colors={
+"res://src/debugger/": "yellow"
+}
+
 [input]
 
 move_up={
