@@ -1,0 +1,43 @@
+[gd_scene format=3 uid="uid://hn6fiyatwcta"]
+
+[ext_resource type="Script" uid="uid://bpmfw8f5lx5p" path="res://src/debugger/overlay/overlay.gd" id="1_woga6"]
+
+[node name="Overlay" type="Control" unique_id=645299503]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1_woga6")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=116252266]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -21.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=1159224968]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+theme_override_constants/separation = -2
+alignment = 1
+
+[node name="fps" type="Label" parent="MarginContainer/VBoxContainer" unique_id=1026276526]
+layout_mode = 2
+theme_override_font_sizes/font_size = 4
+text = "FPS:"
+
+[node name="version" type="Label" parent="MarginContainer/VBoxContainer" unique_id=1014481540]
+layout_mode = 2
+theme_override_font_sizes/font_size = 4
+text = "Build:"
