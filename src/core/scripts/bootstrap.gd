@@ -37,7 +37,7 @@ func _init_player():
 	entities_root.add_child(player)
 
 func load_level(scene_uid: String):
-	_deferred_load_level(scene_uid)
+	_deferred_load_level.call_deferred(scene_uid)
 
 func _deferred_load_level(scene_uid: String):
 	if current_level != null:
