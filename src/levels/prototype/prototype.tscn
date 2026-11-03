@@ -1,16 +1,14 @@
 [gd_scene format=3 uid="uid://dfxbwoi3k2hc0"]
 
 [ext_resource type="Script" uid="uid://cx4xbp083tg5m" path="res://src/levels/prototype/prototype.gd" id="1_ebd5l"]
-[ext_resource type="Texture2D" uid="uid://bvpude45qmthe" path="res://assets/sprites/prototype_block.png" id="1_ta8e0"]
+[ext_resource type="PackedScene" uid="uid://c5hmnprxiuvq1" path="res://src/scenes/camera/camera.tscn" id="3_17dwr"]
 
-[node name="Prototype" type="Node2D" unique_id=1196505536 node_paths=PackedStringArray("player_spawn_position")]
+[node name="Prototype" type="Node2D" unique_id=1196505536 node_paths=PackedStringArray("player_spawn_position", "camera")]
 script = ExtResource("1_ebd5l")
 player_spawn_position = NodePath("PlayerSpawn")
-
-[node name="Node2D" type="Node2D" parent="." unique_id=1216160004]
-
-[node name="Sprite2D" type="Sprite2D" parent="Node2D" unique_id=364997976]
-texture = ExtResource("1_ta8e0")
+camera = NodePath("Camera2D")
 
 [node name="PlayerSpawn" type="Marker2D" parent="." unique_id=1785643416]
-position = Vector2(269, 162)
+position = Vector2(95, 60)
+
+[node name="Camera2D" parent="." unique_id=938048864 instance=ExtResource("3_17dwr")]
