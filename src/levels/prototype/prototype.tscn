@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://dfxbwoi3k2hc0"]
+
+[ext_resource type="Script" uid="uid://cx4xbp083tg5m" path="res://src/levels/prototype/prototype.gd" id="1_ebd5l"]
+[ext_resource type="Texture2D" uid="uid://bvpude45qmthe" path="res://assets/sprites/prototype_block.png" id="1_ta8e0"]
+
+[node name="Prototype" type="Node2D" unique_id=1196505536 node_paths=PackedStringArray("player_spawn_position")]
+script = ExtResource("1_ebd5l")
+player_spawn_position = NodePath("PlayerSpawn")
+
+[node name="Node2D" type="Node2D" parent="." unique_id=1216160004]
+
+[node name="Sprite2D" type="Sprite2D" parent="Node2D" unique_id=364997976]
+texture = ExtResource("1_ta8e0")
+
+[node name="PlayerSpawn" type="Marker2D" parent="." unique_id=1785643416]
+position = Vector2(269, 162)

@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://cfnv31lsyv2og"]
+
+[ext_resource type="Texture2D" uid="uid://bvpude45qmthe" path="res://assets/sprites/prototype_block.png" id="1_swhsd"]
+
+[node name="Player" type="Node2D" unique_id=124559305]
+
+[node name="Node2D" type="Node2D" parent="." unique_id=669959190]
+
+[node name="Sprite2D" type="Sprite2D" parent="Node2D" unique_id=925602984]
+texture = ExtResource("1_swhsd")
