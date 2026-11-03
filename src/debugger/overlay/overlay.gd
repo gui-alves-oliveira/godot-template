@@ -4,7 +4,6 @@ const VERSION = "application/config/version"
 
 @onready var fps: Label = $MarginContainer/VBoxContainer/fps
 @onready var version: Label = $MarginContainer/VBoxContainer/version
-@onready var debug: Label = $MarginContainer/VBoxContainer/debug
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
